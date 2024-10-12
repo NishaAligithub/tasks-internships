@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0; 
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-box {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #4CAF50; 
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #weatherIcon {
+      width: 100px;
+      height: 100px;
+    }
+
+    .weather-info {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Weather App</h1>
+
+    <div class="search-box">
+      <input type="text" id="locationInput" placeholder="Enter city">
+      <button id="searchBtn">Get Weather</button>
+    </div>
+
+    <div class="weather-info">
+      <h2 id="city"></h2> 
+      <p id="weatherDescription"></p>
+      <img id="weatherIcon" src="" alt="Weather icon">
+      <p>Temperature: <span id="temperature"></span></p>
+      <p>Feels like: <span id="feelsLike"></span></p>
+      <p>Humidity: <span id="humidity"></span></p>
+    </div>
+  </div>
+
+  <script>
+    const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+    const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q=';
+
+    const locationInput = document.getElementById('locationInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const cityElement = document.getElementById('city');
+    const temperatureElement = document.getElementById('temperature');
+    const weatherDescriptionElement = document.getElementById('weatherDescription');
+    const feelsLikeElement = document.getElementById('feelsLike');
+    const humidityElement = document.getElementById('humidity');
+    const weatherIconElement = document.getElementById('weatherIcon');
+
+    // Function to fetch weather data
+    async function getWeatherData(location) {
+      try {
+        const response = await fetch(apiUrl + location + '&appid=' + apiKey);
+        
+        if (!response.ok) { 
+          throw new Error('City not found!');
+        }
+
+        const data = await response.json();
+        updateUI(data);
+      } catch (error) {
+        alert(error.message);
+        clearUI(); // Clear previous data if there's an error
+      }
+    }
+
+    // Function to update the UI with weather data
+    function updateUI(data) {
+      cityElement.textContent = `${data.name}, ${data.sys.country}`;
+      temperatureElement.textContent = `${data.main.temp}°C`;
+      weatherDescriptionElement.textContent = data.weather[0].description;
+      feelsLikeElement.textContent = `${data.main.feels_like}°C`;
+      humidityElement.textContent = `${data.main.humidity}%`;
+      weatherIconElement.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    }
+
+    // Function to clear the UI
+    function clearUI() {
+      cityElement.textContent = '';
+      temperatureElement.textContent = '';
+      weatherDescriptionElement.textContent = '';
+      feelsLikeElement.textContent = '';
+      humidityElement.textContent = '';
+      weatherIconElement.src = '';
+    }
+
+    // Function to handle search button click
+    searchBtn.addEventListener('click', () => {
+      const location = locationInput.value.trim();
+      if (location) {
+        clearUI(); // Clear previous results
+        getWeatherData(location);
+      } else {
+        alert('Please enter a city name.');
+      }
+    });
+  </script>
+</body>
+</html>
