@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Name] - Web Developer Portfolio</title>
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0; 
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #337ab7;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem; 
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        #hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin-top: 1rem;
+        }
+
+        section {
+            padding: 2rem 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .project {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
+            padding: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+        }
+
+        #reset-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #337ab7;
+            color: #fff;
+        }
+
+        @media screen and (max-width: 600px) {
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container"> 
+            <h1>NISHA ALI</h1>
+            <p>Web Developer</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero"> 
+        <div class="container">
+            <div class="hero-content">
+                <h2>Crafting beautiful and functional websites.</h2>
+                <p>I'm a passionate web developer specializing in front-end and back-end development.</p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+            <!-- <img src="your-professional-photo.jpg" alt="[Your Name] - Web Developer">  -->
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>[Write a brief and engaging paragraph about yourself, your passion for web development, and your career goals. Highlight key experiences and what makes you unique.]</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul> 
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>[Add your other skills here]</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid"> 
+                <div class="project">
+                    <img src="project1.jpg" alt="[Project 1 Title]">
+                    <h3><a href="[Project 1 Link]" target="_blank">[Project 1 Title]</a></h3>
+                    <p>[Short project description]</p>
+                </div>
+                <div class="project">
+                    <img src="C:\Users\ADMIN\Desktop\INTERNSHIP TASK\TASK3\index.html" alt="[Project 2 Title]">
+                    <h3><a href="C:\Users\ADMIN\Desktop\INTERNSHIP TASK\TASK2\index.html" target="_blank">[Project 2 Title]</a></h3>
+                    <p>[Short project description]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Let's connect and discuss your project.</p>
+            <ul>
+                <li><a href="nishaaliarain@gmail.com">your@email.com</a></li>
+                <li><a href="www.linkedin.com/in/
+                    nisha-ali-arain-99b611266
+                    " target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/NishaAligithub" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Nisha Ali</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
